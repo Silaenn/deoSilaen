@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operator</title>
+</head>
+<body>
+    <script>
+     let operator = (a,b) => { 
+       const pengurangan = a - b; 
+       const pertambahan = a + b; 
+       const sisaBagi = a % b; 
+       const perkalian = a * b;
+       const pembagian = a / b;
+
+       console.log(pengurangan);
+       console.log(pertambahan);
+       console.log(perkalian);
+       console.log(sisaBagi);
+       console.log(pembagian);
+
+       //perbandingan
+       const SamaDengan = a == b;
+       const TdkSmaDengan = a != b;
+       const lebihBesar = a > b;
+       const lebihKecil = a < b;
+
+       console.log(SamaDengan);
+       console.log(TdkSmaDengan);
+       console.log(lebihBesar);
+       console.log(lebihKecil);
+    };
+    operator(10,20);
+
+
+    //Operator Logika
+    let Logika = (a, b) => {
+      const And = (a % 2 === 0) && (a < 10);
+      const Or = (b % 2 === 1) || (b > 10);
+      const Not =  !(b < 30);
+      
+      console.log(And);
+      console.log(Or);
+      console.log(Not);
+    }
+
+    Logika(10, 5);
+
+
+    </script>
+</body>
+</html>

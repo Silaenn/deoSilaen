@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pengulagan menggunakan for</title>
+</head>
+<body>
+    <script>
+        //latihan angkot menggunakan pengulangan for
+        let angkot = 1;
+        let angkotBeroperasi = 6;
+        let jmlhAngkot = 10;
+        for(angkot; angkot <= jmlhAngkot; angkot++){
+            if(angkot <= angkotBeroperasi && angkot !== 5){
+                console.log(`angkot.${angkot} beroperasi dengan baik`)
+            } else if (angkot === 8 || angkot === 10 || angkot === 5){
+                console.log(`angkot.${angkot} sedang lembur`)
+            } 
+            else {
+                console.log(`angkot.${angkot} beroperasi tidak beroperasi`)
+            }
+        }  
+        
+    </script>
+</body>
+</html>

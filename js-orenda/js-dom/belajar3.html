@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>manipulasi dom</title>
+</head>
+<body>
+    <style>
+        * { 
+            border: 2px solid #dedede; 
+            padding: 15px; 
+            margin: 15px; 
+        }
+        html { 
+          margin: 0;
+          padding: 0;
+        }
+        body { 
+          max-width: 600px;
+          margin: 30px auto;
+          font-family: sans-serif;
+          color: #333;
+        }
+      </style>
+    </head>
+    <body>
+    
+      <h1 id="judul">Hello World</h1>
+      <div id="container">
+          <section id="a">
+              <p class="p1">paragraf 1</p>
+              <a href="http://instagram.com/sandhikagalih">Instagram Sandhika Galih</a>
+              <p class="p2">paragraf 2</p>
+              <p class="p3">paragraf 3</p>
+          </section>
+          <section id="b">
+              <p>paragraf 4</p>
+              <ul>
+                  <li>item 1</li>
+                  <li>item 2</li>
+                  <li>item 3</li>
+              </ul>
+          </section>
+      </div>
+    <script>
+        // buat elemen baru
+      const pBaru = document.createElement('p');
+      const teksPBaru = document.createTextNode('Paragraf Baru')
+
+        // simpan tulisan ke dalam paragraf
+        pBaru.appendChild(teksPBaru);
+
+        // simpan pBAru di akhir Section A
+        const sectionA = document.getElementById('a');
+        sectionA.appendChild(pBaru);
+
+
+        const liBaru = document.createElement('li')
+        const teksliBaru = document.createTextNode('Item Baru')
+
+        liBaru.appendChild(teksliBaru)
+
+        const ul = document.querySelector('section#b ul')
+        const li2 = document.querySelector('section#b ul li');
+
+
+
+    </script>
+</body>
+</html>

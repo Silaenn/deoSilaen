@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buat games batu gunting</title>
+</head>
+<body>
+    <style>
+  body{
+    background-color: rgb(25, 25, 25);
+    color: white;
+    font-family: Arial;
+  }
+  .judul{
+    font-size: 30px;
+    font-weight: bold;
+  }
+  .batu,
+  .gunting,
+  .kertas{
+    margin-right: 10px;
+    background-color: transparent;
+    border: 3px solid white;
+    width: 120px;
+    height: 120px;
+    border-radius: 60px;
+    cursor: pointer;
+  }
+  .Move-icon{
+    height: 50px;
+  }
+
+  .result{
+    font-size: 25px;
+    font-weight: bold;
+    margin-top: 50px;
+  }
+  .moves{
+    margin-bottom: 50px;
+  }
+  .reset{
+    background-color: white;
+    border: none;
+    font-size: 15px;
+    padding: 8px 15px;
+    cursor: pointer;
+  }
+
+  </style>
+  <body>
+    <p class="judul">Batu Kertas Gunting</p>
+
+    <button
+      class="batu"
+      onclick="
+             final('batu'); 
+    "> <img src="batu-emoji.png" class="Move-icon">
+    </button>
+
+    <button
+      class="kertas"
+      onclick="
+          final('kertas');
+          "
+    >
+      <img src="kertas-emoji.png" class="Move-icon">
+    </button>
+
+    <button
+      class="gunting"
+      onclick="
+          final('gunting');
+          "
+    >
+      <img src="gunting-emoji.png" class="Move-icon">
+    </button>
+
+    <p class="js-result result">
+    </p>
+    <p class="js-moves moves">
+      
+    </p>
+    <p class="js-score"></p>
+    
+    <button
+      class="reset"
+      onclick="
+          score.wins = 0;
+          score.losses = 0;
+          score.ties = 0;
+          localStorage.removeItem('score');
+          updateScore();
+          "
+    >
+      Reset Score
+    </button>
+
+    <script>
+      let score = JSON.parse(localStorage.getItem("score"));
+
+      if (score === null) {
+        score = {
+          wins: 0,
+          losses: 0,
+          ties: 0,
+        };
+      }
+
+     updateScore();
+
+      function computerMove() {
+        let comp = "";
+        const randomNumber = Math.random();
+
+        if (randomNumber >= 0 && randomNumber < 1 / 3) {
+          comp = "batu";
+        } else if (randomNumber >= 1 / 3 && randomNumber < 2 / 3) {
+          comp = "kertas";
+        } else if (randomNumber >= 2 / 3 && randomNumber < 1) {
+          comp = "gunting";
+        }
+        return comp;
+      }
+
+      function final(player) {
+        const pick = computerMove();
+        let hasil = "";
+
+        if (player === "batu") {
+          if (pick === "batu") {
+            hasil = "Seri";
+          } else if (pick === "kertas") {
+            hasil = "Kamu kalah";
+          } else if (pick === "gunting") {
+            hasil = "Kamu menang";
+          }
+        } else if (player === "kertas") {
+          if (pick === "batu") {
+            hasil = "Kamu menang";
+          } else if (pick === "kertas") {
+            hasil = "Seri";
+          } else if (pick === "gunting") {
+            hasil = "Kamu kalah";
+          }
+        } else if (player === "gunting") {
+          if (pick === "batu") {
+            hasil = "Kamu kalah";
+          } else if (pick === "kertas") {
+            hasil = "Kamu menang";
+          } else if (player === "gunting") {
+            hasil = "Seri";
+          }
+        }
+
+        if (hasil === "Kamu menang") {
+          score.wins++;
+        } else if (hasil === "Kamu kalah") {
+          score.losses++;
+        } else if (hasil === "Seri") {
+          score.ties++;
+        }
+
+        localStorage.setItem("score", JSON.stringify(score));
+
+        updateScore();
+        document.querySelector('.js-result').innerHTML = hasil;
+        document.querySelector('.js-moves').innerHTML = 
+        `Kamu
+      <img src="${player}-emoji.png" class="Move-icon">
+      <img src="${pick}-emoji.png" class="Move-icon">
+      Computer`
+      
+      }
+
+      function updateScore(){
+        document.querySelector('.js-score')
+      .innerHTML = `Wins: ${score.wins} Losses: ${score.losses} Ties: ${score.ties}`;
+      }
+    </script>
+</body>
+</html>
