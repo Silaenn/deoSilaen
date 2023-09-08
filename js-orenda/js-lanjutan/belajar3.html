@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Closure</title>
+</head>
+<body>
+    <script>
+
+    function outerFunction() {
+    var outerVariable = "Saya adalah variabel luar";
+
+    function innerFunction() {
+        console.log(outerVariable); // innerFunction memiliki akses ke outerVariable
+    }
+
+        return innerFunction;
+    }
+
+    var closureFunction = outerFunction(); // closureFunction adalah closure
+
+    closureFunction(); // Output: "Saya adalah variabel luar"
+
+
+
+    function init()  {
+
+    // let nama = 'Deo'
+     return function(nama){
+
+       console.log(nama);
+
+        }
+          
+        tampilNama();
+  }
+        
+  let panggilanNama = init();
+  panggilanNama('deoo')
+  panggilanNama('silaen')
+
+
+
+  function ucapkanSalam (waktu) {
+    return function(nama){
+        console.log(`Halo ${nama}, Selamat ${waktu}, semoga harimu meyenangkan!`)
+    }
+    tampil();
+  }
+
+  let selamatPagi = ucapkanSalam('Pagi')
+  let selamatSiang = ucapkanSalam('Siang')
+  let selamatMalam = ucapkanSalam('Malam')
+
+  selamatPagi('deoo')
+  selamatSiang('dina')
+  selamatMalam('ditha')
+
+
+  let add = function(){
+    let counter = 0;
+    return function(){
+
+        return ++counter;
+        
+    }
+  }
+
+  let a = add();
+  console.log(a());
+  console.log(a());
+  console.log(a());
+  console.log(a());
+  console.log(a());
+  console.log(a());
+
+   
+
+
+  
+
+  
+
+
+    </script>
+</body>
+</html>

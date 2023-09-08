@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>destructuring function</title>
+</head>
+<body>
+    <script>
+        
+        let penjumlahanPerkalian = (a,b) => { return [a + b, a * b] }
+
+        // const jumlah = penjumlahanPerkalian(5, 2)[0];
+        // const kali = penjumlahanPerkalian(5, 2)[1];
+
+        const [jumlah, kali] = penjumlahanPerkalian(2, 3)
+
+        console.log(jumlah);
+        console.log(kali);
+
+        // destructuring function arguments
+        const mhs1 = {
+            nama: 'saskia',
+            umur: 17,
+            email: 'sasikakarmiala@gmail.com',
+            nilai: {
+                tugas: 80,
+                uts: 85,
+                uas: 75
+            }
+        }
+
+        function cetakMhs( { nama, umur, nilai: { tugas, uts, uas}} ) {
+            return `Halo, nama saya ${nama}, saya berumur ${umur} tahun, dan nilai uas saya adalah ${tugas}`
+        }
+
+        console.log(cetakMhs(mhs1))
+
+
+        
+    </script>
+</body>
+</html>

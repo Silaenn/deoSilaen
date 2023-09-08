@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object</title>
+</head>
+<body>
+    <script>
+        // objek literal
+        // PROBLEM : tidak efektf untuk object yang banyak
+        let mahasiswa1 = {
+          nama: 'Deo',
+          energy: 10, 
+          makan: function(porsi){
+             this.energy += porsi;
+
+             console.log(`Halo ${this.nama} selamat makan`)
+        }
+    }
+
+    let mahasiswa2 = {
+          nama: 'steven',
+          energy: 10, 
+          makan: function(porsi){
+             this.energy += porsi;
+
+             console.log(`Halo ${this.nama} selamat makan`)
+        }
+    }
+
+    // function declaration
+    //  Problem : memakan banyak memori
+    function mahasiswa(nama, energy){
+        let mahasiswa = {}
+        mahasiswa.nama = nama;
+        mahasiswa.energy = energy
+
+        mahasiswa.makan = function(porsi){
+            this.energy += porsi;
+            console.log(`Halo ${this.nama}, selamat makan` )
+        }
+
+        mahasiswa.main = function(jam){
+            this.energy -= jam;
+            console.log(`Halo ${this.nama}, selamat bermain`);
+        }
+        return mahasiswa;
+    }
+
+    let Deo =  mahasiswa('Deo Silaen', 10)
+    let dody = mahasiswa('Dody sanjaya', 10)
+
+
+    // constructor function
+    // keyword new
+
+    function Mahasiswa(nama, energy){
+        this.nama = nama;
+        this.energy = energy
+
+        this.makan = function(porsi){
+            this.energy += porsi;
+            console.log(`Halo ${this.nama}, selamat makan` )
+        }
+
+        this.main = function(jam){
+            this.energy -= jam;
+            console.log(`Halo ${this.nama}, selamat bermain`);
+        }
+    }
+
+    let jeremia = new Mahasiswa('Jeremia', 10);
+
+
+    // object.create
+
+    let methodMahasiswa = {
+        makan: function(porsi){
+            this.energy += porsi;
+            console.log(`Halo ${this.nama}, selamat makan` )
+        },
+        main: function(jam){
+            this.energy -= jam;
+            console.log(`Halo ${this.nama}, selamat main` )
+        },
+        tidur: function(jam){
+            this.energy += 2 * jam;
+            console.log(`Halo ${this.nama}, selamat tidur` )
+        }
+    }
+
+    function mahaSiswa(nama, energy){
+        let mahasiswa = Object.create(methodMahasiswa);
+        mahasiswa.nama = nama;
+        mahasiswa.energy = energy
+
+        mahasiswa.makan = function(porsi){
+            this.energy += porsi;
+            console.log(`Halo ${this.nama}, selamat makan` )
+        }
+
+        mahasiswa.main = function(jam){
+            this.energy -= jam;
+            console.log(`Halo ${this.nama}, selamat bermain`);
+        }
+        return mahasiswa;
+    }
+
+    let james = mahaSiswa('james', 10);
+    let nova = mahaSiswa('nova', 10);
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Togged Templates</title>
+</head>
+<body>
+    <script>
+        const nama = 'Deo Keldi SIlaen'
+        const umur = 33;
+
+        function coba(strings, ...values){
+            let result = '';
+            strings.forEach((str, i) => {
+                result += `${str} ${values[i] || ''}`
+            });
+            return result
+        }
+
+        const str = coba`Halo, nama saya ${nama}, saya ${umur} tahun.`;
+        console.log(str);
+    </script>
+</body>
+</html>
