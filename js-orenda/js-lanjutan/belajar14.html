@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asynchronous javaScript</title>
+</head>
+<body>
+     <h2 id="header2"></h2> 
+    <script>
+     //  callBackk
+        // function halo(nama){
+        //     alert(`Halo, ${nama}`)
+        // }
+
+        // function tampilkanPesan(callBackk){
+        //     const nama = prompt('Masukkan Nama : ')
+        //     callBackk(nama) 
+        // }
+
+        // tampilkanPesan(halo);
+
+       // setTimeout
+       const addElement = () => {
+        const header = document.createElement('h1')
+        header.textContent = 'Programmer Zaman Now'
+
+        document.body.appendChild(header)
+       }
+
+       setTimeout(addElement, 5000)
+       console.info('Program Selesai')
+
+       // setInterval
+       const setTime = () => {
+         const header = document.getElementById('header2')
+         header.textContent = new Date().toISOString();
+
+         document.body.appendChild(header);
+       }
+
+       setInterval(setTime, 1000)
+
+       // contoh
+       let stock = {
+        Fruits : ['Strawberry', 'grapes', 'banana', 'apple'],
+        liquid : ["water", "ice"],
+        holder : ["cone", "cup", "stick"],
+        toppings : ["chocolate", "peanuts"],
+       }
+
+       let order = (Fruit_name ,cal_production) => {
+
+        setTimeout(() => {
+            console.log(`${stock.Fruits[Fruit_name]} was selected`);
+
+            cal_production();
+        }, 2000)
+
+        
+       };
+
+       let production = () => {
+         setTimeout(() => {
+            console.log("production has started")
+
+            setTimeout(() => {
+                console.log('the fruit has been chopped ');
+
+                setTimeout(() => {
+                    console.log(`${stock.liquid[0]} and ${stock.liquid[1]} was added`);
+
+                    setTimeout(() => {
+                        console.log('the machine waas started');
+
+                        setTimeout(() => {
+                            console.log(`ice cream was placed on ${stock.holder[0]}`);
+
+                            setTimeout(() => {
+                                console.log(`${stock.toppings[0]} was added as toppings`);
+
+                                setTimeout(() =>{
+                                    console.log('serve ice cream ');
+                                }, 2000)
+                            }, 3000)
+                        }, 2000)
+                    }, 1000)
+                }, 1000)
+            }, 2000)
+         }, 0000)
+       }
+
+       order(0 ,production);
+     
+
+
+    </script>
+</body>
+</html>

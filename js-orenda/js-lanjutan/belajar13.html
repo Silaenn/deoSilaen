@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>rest parameter</title>
+</head>
+<body>
+    <script>
+        // Rest parameter 
+        function myFunc (a, b, ...myArgs) {
+            return `a = ${a}, b = ${b}, myArgs = ${myArgs}`
+        }
+
+        console.log(myFunc(1, 2, 3, 4, 5));
+
+
+        function jumlahkan(...angka){
+            // let total = 0;
+            // for (const a of angka) {
+            //     total += a;
+            // }
+            // return total;
+
+            return angka.reduce((a, b) => a + b);
+
+        }
+
+        console.log(jumlahkan(1,2,3,4,5));
+
+        // array destructuring
+        const kelompok1 = ['Shandika', 'deo', 'fajar', 'hendra']
+        const [ketua,wakil,... anggota] = kelompok1
+        console.log(anggota);
+
+
+        //object destructuring
+        const team = {
+          pm: 'Shandhika',
+          frontEnd1: 'Dody',
+          frontEnd2: 'Erick',
+          backEnd: 'Fajar',
+          ux: 'Hendra',
+          devOps: 'Ferry'
+        }
+
+        const {pm, ...myTeam} = team
+        console.log(myTeam);
+
+        // filtering
+        function filterBy(type, ...values){
+        
+          return values.filter(v => typeof v === type)  
+
+        }
+
+        console.log(filterBy('string', 1, 2, 'Shandika', false, 10, true, 'dody'));
+
+
+
+    </script>
+</body>
+</html>

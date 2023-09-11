@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async/Await</title>
+</head>
+<body>
+    <script>
+        let stock = {
+        Fruits : ['Strawberry', 'grapes', 'banana', 'apple'],
+        liquid : ["water", "ice"],
+        holder : ["cone", "cup", "stick"],
+        toppings : ["chocolate", "peanuts"],
+       }
+
+       let is_shop_open = true;
+
+       async function order () {
+        try{
+           await abc; 
+        }
+        catch(error){
+            console.log('abc does not exist', error);
+        }
+
+        finally{
+            console.log('runs code anyways');
+        }
+
+       }
+
+       order().then(() => {
+        console.log('hfhufrhur');
+       })
+    </script>
+</body>
+</html>
