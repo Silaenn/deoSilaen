@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>function</title>
+</head>
+<body>
+    <script>
+    function jumlahDuaBilangan(a,b){
+        let total = a + b;
+        return total;
+    }
+
+    function jumlahVolumeDuaKubus(a,b){
+       let volume1= a * a * a;
+       let volume2 = b * b * b;
+
+       console.log(volume1 + volume2);
+    }
+
+    function tambah(){
+        let hasil = 0;
+        for (let i = 0; i < arguments.length; i++) {
+            hasil += arguments[i];
+        }
+        return hasil
+    }
+    let coba = tambah(3,2,3,4,5,66,7,78,8);
+    console.log(coba);
+    jumlahVolumeDuaKubus(10,50);
+    alert(jumlahDuaBilangan(25,30))
+    
+    </script>
+    
+</body>
+</html>

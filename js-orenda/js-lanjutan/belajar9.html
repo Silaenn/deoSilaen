@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>destructuring</title>
+</head>
+<body>
+    <script>
+        // // Destructuring Array
+        // const perkenalan = ['halo', 'nama', 'saya', 'Deo'];
+        // const gudbai = ['hi', 'Deo', 'Selamat Tinggal']
+
+        // const [salam, satu, dua, nama] = perkenalan
+        
+        // console.log(nama)
+
+        // // skipping items
+        // const [hi, , bai] = gudbai;
+        // console.log(bai)
+
+        // // swap items
+        // let a = 1
+        // let b = 2
+        // console.log(a)
+        // console.log(b)
+
+        // let c = [a, b] = [b, a]
+        // console.log(c)
+
+        // return value pada function
+        // function coba(){
+        //     return [1,2]
+        // }
+
+        // const [a, b] = coba();
+        // console.log(a)
+
+        // rest parameter
+        // const [a, ...values] = [1, 2, 3, 4, 5]
+        // console.log(a) 
+        // console.log(values) 
+
+
+        // Destructuring Object
+        // const mhs = {
+        //     nama: 'revka',
+        //     umur:  33
+        // }
+
+        // const { nama, umur } = mhs;
+        // console.log(nama)
+
+        // assigment tanpa deklarasi object 
+        // ({ nama, umur} = {  nama: 'revka', umur:  33 })
+        // console.log(nama)
+
+         // assign ke variabel baru
+        //  const mhs = {
+        //     nama: 'revka',
+        //     umur:  33
+        // }
+
+        // const { nama : n, umur : u } = mhs;
+        // console.log(n);
+
+      //  memberikan Default Value 
+    //    const mhs = {
+    //         nama: 'revka',
+    //         umur:  33
+    //     }
+
+    //     const { nama, umur, email = 'email.default.com '} = mhs;
+    //     console.log(email);
+
+    // mengambil field pada object, setelah dikirim sebagai parameter untuk function
+    const mhs = {
+            id : 123,
+            nama: 'Deo Silaen',
+            umur: 17,
+            email: 'deokeldisilaen@gmail'
+        }
+
+    function getIdMhs ( {nama} ) {
+        return nama;
+    }    
+
+    console.log(getIdMhs(mhs));
+
+
+
+    </script>
+</body>
+</html>

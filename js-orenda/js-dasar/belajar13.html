@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>manipulasi Array</title>
+</head>
+<body>
+    <script>
+      // join
+      let arr = ['a', 'b', 'c', 'e', 'f']
+      console.log(arr.join(' - '));
+
+      // push
+      arr.push('d');
+      console.log(arr.join(' - '));
+
+      // pop
+      arr.pop();
+      console.log(arr.join(' - '));
+
+      // unshift & shift
+      let arr1 = ['deoo', 'keldi', 'silaen', 'wilson', 'f']
+      arr1.unshift('a');
+      console.log(arr1.join(' - '));
+      arr1.shift();
+      console.log(arr1.join(' - '));
+      
+
+      // splice (indexAwal, mauDihapusBerapa, alemenBaru1, elemenBAru2)
+      arr1.splice(4, 1, 'yudi', 'yono')
+      console.log(arr1.join(' - '));
+
+      // slice (awal, akhir)
+      let array = arr1.slice(0, 4);
+      console.log(array.join(' - '));
+         
+    </script>
+    
+</body>
+</html>

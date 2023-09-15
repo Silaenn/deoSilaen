@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrow function</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    .box{
+        width: 100px;
+        height: 100px;
+        border: 1px solid black;
+        margin: 50px auto;
+        transition: .3s width,
+        .3s height, .3s, 
+        .3s margin-top .3s,
+        1s background-color;
+    }
+
+    .size{
+        width:  150px;
+        height:  150px;
+        margin-top: 25px
+    }
+
+    .caption{
+        background-color: black;
+    }
+</style>
+<body>
+    <div class="box size"></div>
+
+    <script>
+       // function declarations
+
+    //    function tampilPesan (nama) {
+
+    //     alert(`halo ${nama}`)
+
+    //    }
+
+       // arrow functions 
+    //    let tampilPesan2 = (nama) => alert(`halo ${nama}`)
+
+    //    tampilPesan2('revkaa')
+    //    tampilPesan('deoo')
+
+    //    const tampilNama = (nama) => { return `nama kamun adalah ${nama}` }
+    //    console.log('rajaa')
+
+
+    //    let mahasiswa = ['deo', 'dody', 'lukaku']
+    //    let jumlahHuruf = mahasiswa.map(function(nama){
+    //     return nama.length;
+    //    })
+    //    console.log(jumlahHuruf)
+
+    // let jumlahHuruf = mahasiswa.map (nama => nama.length);
+    // console.log(jumlahHuruf)
+
+    // let jumlahHuruf = mahasiswa.map (nama => ({nama: nama, jmlhHuruf: nama.length }))
+    // console.table(jumlahHuruf)    
+
+
+    //  // This
+    //  const mahasiswa2 = function (){
+    //     this.nama = 'fandi';
+    //     this.umur = 16;
+    //     this.sayHello = function(){
+    //         console.log(`Halo, nama saya ${this.nama} saya umur ${this.umur} tahun`)
+    //     }
+    //     setInterval(() => {
+    //         console.log(this.umur++)
+    //     }, 500)
+
+    //  } 
+    //  const murid1 = new mahasiswa2()
+
+    const box = document.querySelector('.box')
+    box.addEventListener('click', function () {
+        let satu = 'size'
+        let dua = 'caption'
+
+        if(this.classList.contains(satu)){
+            [satu, dua] = [dua, satu]
+        }
+        this.classList.toggle(satu);
+        setTimeout (() => {
+            this.classList.toggle(dua)
+        }, 600)
+    })
+     
+
+
+
+    </script>
+</body>
+</html>

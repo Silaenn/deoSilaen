@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>spread operator</title>
+</head>
+<style>
+    body{
+        background-color: salmon;
+        text-align: center;
+    }
+    .nama{
+        font-family: Arial;
+        font-size: 80px;
+        color: white;
+        
+    }
+    .nama span{
+        display: inline-block;
+        transition: .3s ;
+    }
+    .nama span:hover{
+        transform: scale(2);
+    }
+</style>
+<body>
+    <!-- <ul>
+        <li>Shandika</li>
+        <li>Dody</li>
+        <li>Erick</li>
+    </ul> -->
+    <h1 class="nama">Keldi</h1>
+    <script>
+        // menggabungkan array
+        const mhs = ['shandika', 'dody', 'erick']
+        const dosen = ['ade', 'bayu', 'rico']
+        const orang = [...mhs,'aji',...dosen]
+
+        console.log(orang);
+
+
+        // meng copy 
+        const mhs1 = ['shandika', 'dedy', 'rio']
+        const mhs2 = [... mhs1]
+        console.log(mhs2);
+
+        // 
+        const liMhs = document.querySelectorAll('li')
+        const Mhs = [];
+        for( let i = 0; i < liMhs.length; i++){
+            Mhs.push(liMhs[i].textContent)
+        }
+       console.log(Mhs);
+
+       const nama = document.querySelector('.nama')
+       const huruf = [...nama.textContent].map(h => `<span>${h}</span>`).join('');
+       nama.innerHTML = huruf;
+
+        
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object</title>
+</head>
+<body>
+    <script>
+        let mhs = {
+            nama : 'deo silaen',
+            nrp : '0293326726',
+            email : 'deokeldisilaen@gmail.com',
+            jurusan : 'Teknik informatika'
+        }
+
+       function mahasiswa(nama, nrp, email, jurusan){
+        this.nama = nama;
+        this.nrp = nrp;
+        this.email = email;
+        this.jurusan = jurusan;
+       }
+
+       let mhs2 = new mahasiswa('erik', '322842848', 'rick21@gmail.com', 'teknik mesin')
+       
+    </script>
+</body>
+</html>

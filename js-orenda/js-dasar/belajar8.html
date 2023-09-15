@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>pengulangan switch</title>
+  </head>
+  <body>
+    <script>
+      let item = prompt(
+        "masukkan nama makanan / minuman : \n (cth: nasi, daging, susu, hamburger, sofdrink)"
+      );
+
+      switch(item){
+        case 'nasi':
+            case 'daging':
+                case 'susu':
+                        alert('makanan / minuman SEHAT!')
+                        break;
+
+        case 'hamburger': 
+        case 'softdrink': 
+               alert('makanan / minuman TIDAK SEHAT!');
+               break;
+        default : alert('anda memasukkan nama makanan / minuman yang salah')
+        break;                           
+        }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>prototype</title>
+</head>
+<body>
+    <script>
+
+    function mahaSiswa(nama, energy){
+        // let mahasiswa = Object.create(methodMahasiswa);
+        this.nama = nama;
+        this.energy = energy;  
+
+        // return mahasiswa;
+    }
+
+    mahaSiswa.prototype.makan = function(porsi){
+        this.energy += porsi;
+        return `Halo ${this.nama}, selamat makan`
+    }
+
+    mahaSiswa.prototype.main = function(jam){
+        this.energy -= jam;
+        return `Halo ${this.nama}, selamat main`
+    }
+
+    mahaSiswa.prototype.tidur = function(jam){
+        this.energy += 2 * jam;
+        return `Halo ${this.nama}, selamat tidur`
+    }
+
+    let james =new  mahaSiswa('james', 10);
+    let nova = new mahaSiswa('nova', 10);
+
+    
+    </script>
+</body>
+</html>
