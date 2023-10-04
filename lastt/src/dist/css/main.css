@@ -462,3 +462,39 @@ header {
 }
 
 /*STYLE FOOTER*/
+
+
+/*STYLE TODOLIST*/
+.todolist-page .todolist {
+  background-color: var(--primary-color);
+  padding-top: 100px;
+  padding-bottom: 50px;
+}
+
+.todolist-page .todolist .row:nth-child(1) h1 {
+  color: var(--color-text);
+  margin-bottom: 20px;
+}
+
+.todolist-page .todolist .row:nth-child(1) p {
+  padding-bottom: 40px;
+  color: var(--color-text);
+}
+
+.todolist-page .todolist .row:nth-child(2) .label-input-container {
+  display: flex; /* Membuat label dan input berbaris */
+  align-items: center; /* Menyelaraskan label dan input secara vertikal */
+  margin-bottom: 10px; /* Menambahkan jarak antar baris */
+}
+
+.todolist-page .todolist .row:nth-child(2) input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+/*STYLE TODOLIST*/
+
