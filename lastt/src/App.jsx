@@ -17,6 +17,8 @@ function App() {
         <Route path="/testimonial" Component={TestimonialPage} />
         <Route path="/faq" Component={FaqComponent} />
         <Route path="/syaratketen" Component={SyaratKatenPage} />
+        <Route path="/todolist" Component={ToDoList} />
+
       </Routes>
       <FooterComponent />
     </div>
