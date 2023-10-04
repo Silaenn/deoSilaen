@@ -6,6 +6,8 @@ import TestimonialPage from "./pages/TestimonialPage";
 import FaqComponent from "./components/FaqComponent";
 import NavbarComponent from "./components/NavbarComponent";
 import FooterComponent from "./components/FooterComponent";
+import ToDoList from "./pages/ToDoList";
+
 
 function App() {
   return (
