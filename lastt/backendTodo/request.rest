@@ -1,0 +1,25 @@
+GET http://localhost:5000/todo/
+
+###
+
+POST http://localhost:5000/todo
+Content-Type: application/json
+
+{
+    "nama": "deo",
+    "email": "deo@gmail.com"
+}
+
+###
+PATCH  http://localhost:5000/todo/1
+Content-Type: application/json
+
+{
+    "nama" : "revka (updated)",
+    "email": "revka@gmail.com"
+}
+
+###
+
+DELETE http://localhost:5000/todo/1
+
