@@ -1,27 +1,45 @@
 import { useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import Table from "react-bootstrap/Table";
+import axios from "axios";
+import useSWR, { useSWRConfig } from "swr";
 
 const ToDoList = () => {
-  const [todos, setTodos] = useState([]);
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
+  
+  const [nama, setNama] = useState("");
+  const [email, setEmail] = useState("");
 
-  // Fungsi untuk menambahkan tugas ke daftar todos
-  const addTodo = () => {
-    if (title.trim() !== "" && description.trim() !== "") {
-      const newTodo = { title, description };
-      setTodos([...todos, newTodo]);
-      setTitle("");
-      setDescription("");
+  const { mutate } = useSWRConfig();
+  const fetcher = async () => {
+    const response = await axios.get("http://localhost:5000/todo");
+    return response.data;
+  };
+
+  const { data: user } = useSWR("user", fetcher);
+  if (!user) return <h2>Loading...</h2>;
+
+  const addTodo = async () => {
+    if (nama.trim() !== "" && email.trim() !== "") {
+      const newTodo = { nama, email };
+      try {
+        const response = await axios.post(
+          "http://localhost:5000/todo",
+          newTodo
+        );
+
+        setNama("");
+        setEmail("");
+
+        mutate("user", [...user, response.data], false);
+      } catch (error) {
+        console.error("gagal", error);
+      }
     }
   };
 
-  // Fungsi untuk menghapus tugas dari daftar todos
-  const deleteTodo = (index) => {
-    const newTodos = [...todos];
-    newTodos.splice(index, 1);
-    setTodos(newTodos);
+  const deleteTodo = async (userId) => {
+    await axios.delete(`http://localhost:5000/todo/${userId}`);
+    mutate("user");
   };
 
   return (
@@ -42,24 +60,24 @@ const ToDoList = () => {
                 <label>
                   Nama :
                   <input
-                    className="inputData"
+                    className=""
                     type="text"
                     placeholder="Masukkan nama..."
-                    value={title}
-                    onChange={(e) => setTitle(e.target.value)}
+                    value={nama}
+                    onChange={(e) => setNama(e.target.value)}
                   />
                 </label>
               </div>
 
-              <div>
+              <div className="label-input-container">
                 <label>
                   Email :
                   <input
-                    className="inputData"
+                    className=""
                     type="text"
-                    value={description}
-                    placeholder="Masukan email..."
-                    onChange={(e) => setDescription(e.target.value)}
+                    placeholder="Masukkan Email..."
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                   />
                 </label>
               </div>
@@ -80,20 +98,22 @@ const ToDoList = () => {
               <Table striped bordered hover>
                 <thead>
                   <tr>
+                    <th>No</th>
                     <th>Nama</th>
                     <th>Email</th>
                     <th>Aksi</th>
                   </tr>
                 </thead>
                 <tbody>
-                  {todos.map((todo, index) => (
-                    <tr key={index}>
-                      <td>{todo.title}</td>
-                      <td>{todo.description}</td>
+                  {user.map((user, index) => (
+                    <tr key={user.id}>
+                      <td>{index + 1}</td>
+                      <td>{user.title}</td>
+                      <td>{user.description}</td>
                       <td>
                         <button
                           className="btn btn-danger"
-                          onClick={() => deleteTodo(index)}
+                          onClick={() => deleteTodo(user.id)}
                         >
                           Delete
                         </button>
