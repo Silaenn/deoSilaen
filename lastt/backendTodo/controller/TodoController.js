@@ -39,24 +39,6 @@ export const createTodo = async (req, res) => {
   }
 };
 
-export const updateTodo = async (req, res) => {
-  const { nama, email } = req.body;
-  try {
-    const todo = await prisma.data.update({
-      where: {
-        id: Number(req.params.id),
-      },
-      data: {
-        title: nama,
-        description: email,
-      },
-    });
-    res.status(200).json(todo);
-  } catch (error) {
-    res.status(400).json({ msg: error.message });
-  }
-};
-
 export const deleteTodo = async (req, res) => {
   try {
     const todo = await prisma.data.delete({
